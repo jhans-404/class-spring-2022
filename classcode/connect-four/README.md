@@ -6,7 +6,7 @@
 ```
 for (int r = 0; r < arr.length; r++) {
     for (int c = 0; c < arr[r].length; c++) {
-        \\ do something
+        // do something
     }
 }
 ```
