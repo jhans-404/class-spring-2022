@@ -59,13 +59,24 @@ void displayGrid() {
 
 void displayBoard() {
   noStroke();
+  
+  // nested for loops to access each row
+  // and column in each row
   for(int r = 0; r < board.length; r++) {
     for(int c = 0; c < board[r].length; c++) {
+      
+      // if there's a player 1 piece, make red circle
       if(board[r][c].equals("X")) {
         fill(255, 0, 0);
+        
+        // plus 75 allows for the circle to be centered in the box
         ellipse(75 + c * 50, 75 + r * 50, 48, 48);
       } 
+      
+      // if the first player didn't play that square
+      // check to see if the second player did
       else if(board[r][c].equals("O")) {
+        // if yes, draw a yellow circle
         fill(255, 255, 0);
         ellipse(75 + c * 50, 75 + r * 50, 48, 48);
       }
@@ -75,10 +86,31 @@ void displayBoard() {
 
 
 void keyPressed() {
-  if(round % 2 == 0 && key == '1') {
+  int col = key - 49; // subtracting 49 works???
+  
+  if(round % 2 == 0) {
     // drop piece method
-    board[5][1] = "X";  
+    board[rowPlay(col)][col] = "X";  
+    round++;
+  }
+  else if(round % 2 == 1) {
+    // drop piece method
+    board[rowPlay(col)][col] = "O";  
     round++;
   }
   
 } // end keyPressed method
+
+int rowPlay(int c) {
+  // only focusing on the column the user wants
+  for (int r = 0; r < board.length; r++) {
+    // find the top-most cell that is occupied
+    if (!board[r][c].equals("")) {
+      // play the cell directly above
+      return r - 1;  
+    }
+  }
+ 
+  // if we get down here, the full column is unoccupied
+  return board.length - 1;
+}
