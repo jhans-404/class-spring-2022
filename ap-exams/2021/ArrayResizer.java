@@ -6,7 +6,7 @@ public class ArrayResizer {
                          {1, 3, 2},
                          {0, 0, 0},
                          {4, 5, 6}
-                       };
+                        };
 
     System.out.println(isNonZeroRow(testArray, 0)); // false
     System.out.println(isNonZeroRow(testArray, 1)); // true
@@ -64,7 +64,6 @@ public class ArrayResizer {
   public static int numNonZeroRows(int[][] arr) {
     // keep track of how many non-zero rows there are
     int count = 0;
-
 
     for (int[] row : arr) {
       // keep track of how many non-zero values exist in each row
