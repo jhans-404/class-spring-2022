@@ -14,7 +14,6 @@ public class Student {
     this.grades = g;
   }
 
-
   // behaviors (methods)
 
   // get the close contact status of the student
