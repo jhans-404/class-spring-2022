@@ -29,6 +29,9 @@ public class DataStore {
     String name5 = "Michael Green";
     boolean cc5 = true;
     int[] grades5 = {80, 80, 65, 55, 90};
+
+    Student student1 = new Student("1234567", "Jimmy Smith", true, new int[] {90, 80, 95, 90, 100});
+    System.out.println(student1.getAverage());
   } // end main method
 
 } // end class
