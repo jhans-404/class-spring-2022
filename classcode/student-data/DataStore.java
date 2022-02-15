@@ -32,14 +32,22 @@ public class DataStore {
 
     // creating instances of the Student class
     Student student1 = new Student("9876543", "Jimmy Smith", true, new int[] {90, 80, 95, 90, 100});
-    Student student2 = new Student("1234567", "Maria Hernandez", false, new int[] {95, 100, 100, 90, 90});
+    Student student2 = new Student("1234567", "Maria Hernandez", new int[] {95, 100, 100, 90, 90});
 
     // calling getter methods to display data
     System.out.println(student1.getName() + "'s average is: " + student1.getAverage());
     System.out.println(student2.getName() + "'s average is: " + student2.getAverage());
 
     // decision making based off of data attached to the object
-    if (student1.getCloseContact()) {
+    if (student2.getCloseContact()) {
+      System.out.println("Please report to the auditorium for your take-home COVID test");
+    }
+    else {
+      System.out.println("You are not a close contact, keep masking! Get boosted!");
+    }
+
+    student2.setCloseContact(true);
+    if (student2.getCloseContact()) {
       System.out.println("Please report to the auditorium for your take-home COVID test");
     }
     else {

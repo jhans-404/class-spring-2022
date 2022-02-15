@@ -14,6 +14,14 @@ public class Student {
     this.grades = g;
   }
 
+  // alternate constructor (overloaded constructor)
+  public Student(String id, String n, int[] g) {
+    this.id = id;
+    this.name = n;
+    this.closeContact = false;
+    this.grades = g;
+  }
+
   // behaviors (methods)
 
   // get the close contact status of the student
@@ -23,7 +31,7 @@ public class Student {
 
   // set the value of close contact
   public void setCloseContact(boolean value) {
-
+    this.closeContact = value;
   }
 
   // see if the student is failing
