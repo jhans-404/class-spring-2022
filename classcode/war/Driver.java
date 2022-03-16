@@ -8,5 +8,9 @@ public class Driver {
 
     System.out.println(deck1.getLength()); // 52 cards in a standard deck
     deck1.displayDeck();
+    deck1.shuffle();
+
+    deck1.displayDeck();
+    System.out.println(deck1.getLength());
   }
 }

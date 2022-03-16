@@ -16,7 +16,25 @@ public class Deck {
 
   public int getLength() {
     return deck.size();
-  }
+  } // end getLength method
+
+  public void shuffle() {
+    // METHOD 1: grab randomly and build
+    // new list
+    ArrayList<Card> shuffledDeck = new ArrayList<Card>();
+
+    for(int i = 0; i < 52; i++) {
+      // generate random number from 0 to 51 (.size() - 1)
+      int r = (int)(Math.random() * (this.deck.size() - 1));
+
+      // add the r-th card from deck into shuffledDeck and remove from deck
+      shuffledDeck.add(this.deck.get(r));
+      this.deck.remove(r);
+    } // end for loop
+
+    this.deck = shuffledDeck;
+
+  } // end shuffle method
 
   public void displayDeck() {
     for(Card c : this.deck) {
