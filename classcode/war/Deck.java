@@ -19,11 +19,13 @@ public class Deck {
   } // end getLength method
 
   public void shuffle() {
+    /*
     // METHOD 1: grab randomly and build
     // new list
     ArrayList<Card> shuffledDeck = new ArrayList<Card>();
+    int size = this.deck.size();
 
-    for(int i = 0; i < 52; i++) {
+    for(int i = 0; i < size; i++) {
       // generate random number from 0 to 51 (.size() - 1)
       int r = (int)(Math.random() * (this.deck.size() - 1));
 
@@ -33,7 +35,16 @@ public class Deck {
     } // end for loop
 
     this.deck = shuffledDeck;
+    */
 
+    // METHOD 2: split into to and then merge back together
+    ArrayList<Card> sub1 = new ArrayList<Card>();
+    ArrayList<Card> sub2 = new ArrayList<Card>();
+
+    for(int i = 0; i < this.deck.size() / 2; i++) {
+      sub1.add(this.deck.get(i));
+      sub2.add(this.deck.get(i + 26));
+    }
   } // end shuffle method
 
   public void displayDeck() {
