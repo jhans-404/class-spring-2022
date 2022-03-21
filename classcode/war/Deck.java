@@ -37,7 +37,7 @@ public class Deck {
     this.deck = shuffledDeck;
     */
 
-    // METHOD 2: split into to and then merge back together
+    // METHOD 2: split into two and then merge back together (out method)
     ArrayList<Card> sub1 = new ArrayList<Card>();
     ArrayList<Card> sub2 = new ArrayList<Card>();
 
@@ -45,6 +45,20 @@ public class Deck {
       sub1.add(this.deck.get(i));
       sub2.add(this.deck.get(i + 26));
     }
+
+    // grab from the bottom of each sub-array and place in the back of deck
+    int i = this.deck.size() - 1;
+
+    // System.out.println(sub1.get(0));
+    // System.out.println(sub2.get(0));
+    while(sub1.size() > 0) {
+      this.deck.set(i, sub2.get(sub2.size() - 1)); // get last item from sub2
+      this.deck.set(i - 1, sub1.get(sub1.size() - 1)); // get last item from sub1
+      sub2.remove(sub2.size() - 1);
+      sub1.remove(sub1.size() - 1);
+      i -= 2;
+    }
+
   } // end shuffle method
 
   public void displayDeck() {
